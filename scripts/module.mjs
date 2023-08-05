@@ -7,6 +7,8 @@
 import {Core} from './modules/core.mjs'
 import * as Apps from './modules/apps.mjs'
 import * as Lib from './modules/lib.mjs'
+import { setApi } from './modules/lib/lib.mjs'
+import API from './modules/api.mjs'
 
 export class MODULE {
 
@@ -48,6 +50,8 @@ export class MODULE {
       Object.values(MODULE.MODULE_INIT).forEach(cl => cl.build ? cl.build(this) : null);
       game.modules.get(`${this.meta.id}`).Archon = Lib.Archon;
       game.modules.get(`${this.meta.id}`).ArchonControl = Apps.ArchonControl;
+      // Set up api on standard path game.modules.get('archon').api
+      setApi(API);
     });
   }
 }

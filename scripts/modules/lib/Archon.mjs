@@ -89,4 +89,8 @@ export default class Archon extends Item.implementation {
     return Archon.create(this.toObject())
   }
 
+  static async createImpl(sourceItem, symbolic = true, overrides = {}) {
+    return this.create(sourceItem, symbolic, overrides);
+  }
+
 }
